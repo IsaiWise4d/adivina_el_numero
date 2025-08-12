@@ -27,7 +27,6 @@ function GameInner() {
     setHistory([]);
     setStatus('playing');
     setInput('');
-    inputRef.current?.focus();
   }, [length]);
 
   useEffect(() => restart(), [restart]);
@@ -42,7 +41,8 @@ function GameInner() {
     setHistory(next);
     if (correct === length) setStatus('won');
     setInput('');
-    inputRef.current?.focus();
+    // Ocultar teclado en mobile tras enviar
+    inputRef.current?.blur();
   };
 
   return (
@@ -76,7 +76,7 @@ function GameInner() {
                 }}
                 placeholder={'Ingresa ' + length + ' dígitos'}
                 aria-invalid={warnDuplicate || (input.length === length && input.length !== new Set(input).size)}
-                className={`input-code flex-1 rounded-xl bg-white/10 border px-4 py-3 tracking-widest text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400/70 focus:bg-white/20 placeholder:text-white/40 w-full transition-colors ${warnDuplicate ? 'border-warning focus:ring-warning' : 'border-white/20'}`}
+                className={`input-code flex-1 rounded-xl bg-white/10 border px-4 py-3 tracking-widest text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-brand-400/70 focus:bg-white/20 placeholder:opacity-50 w-full transition-colors ${warnDuplicate ? 'border-warning focus:ring-warning' : 'border-white/20'}`}
               />
               <div className="min-h-[1.1rem] text-xs">
                 {warnDuplicate && (
@@ -86,7 +86,7 @@ function GameInner() {
                   <span className="text-danger font-medium" role="alert">Ese número ya lo intentaste.</span>
                 )}
                 {!warnDuplicate && !attemptExists && input.length > 0 && input.length < length && (
-                  <span className="text-white/40">Faltan {length - input.length} dígito(s).</span>
+                  <span className="opacity-60">Faltan {length - input.length} dígito(s).</span>
                 )}
               </div>
             </div>
@@ -100,7 +100,7 @@ function GameInner() {
 
         <GameBoard history={history} length={length} />
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-sm text-white/80 pt-2">
+  <div className="flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-sm opacity-85 pt-2">
           <div className="space-y-1">
             {status === 'won' && (
               <div className="text-success font-semibold">¡Ganaste! Secreto: {secret}</div>
@@ -130,7 +130,7 @@ function GameInner() {
         <Celebration message="Ganaste" onClose={() => { /* permitir cerrar sin reiniciar */ }} />
       )}
 
-  <footer className="text-xs text-white/50 py-4 mt-auto">
+  <footer className="text-xs opacity-60 py-4 mt-auto">
         Adivina el Número • Partida en curso
       </footer>
     </main>

@@ -149,3 +149,14 @@ body.theme-rosa [class*='text-brand'] { color: var(--text-color) !important; }
 /* Mantener texto blanco en botones y badges activos */
 body.theme-rosa .btn-base,
 body.theme-rosa .diff-active { color:#fff !important; }
+
+/* Overrides específicos de utilidades Tailwind para texto blanco con opacidad en tema rosa */
+body.theme-rosa .text-white\/80 { color: var(--text-color) !important; opacity:.85 !important; }
+body.theme-rosa .text-white\/70 { color: var(--text-color) !important; opacity:.78 !important; }
+body.theme-rosa .text-white\/60 { color: var(--text-color) !important; opacity:.66 !important; }
+body.theme-rosa .text-white\/50 { color: var(--text-color) !important; opacity:.58 !important; }
+body.theme-rosa .text-white\/40 { color: var(--text-color) !important; opacity:.48 !important; }
+body.theme-rosa .text-white\/30 { color: var(--text-color) !important; opacity:.38 !important; }
+body.theme-rosa footer .text-white\/50 { color: var(--text-color) !important; opacity:.55 !important; }
+body.theme-rosa ::placeholder { color: rgba(59,10,38,0.55) !important; }
+body.theme-rosa input { color: var(--text-color); }

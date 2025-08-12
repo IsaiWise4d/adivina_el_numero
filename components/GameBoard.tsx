@@ -9,7 +9,7 @@ export const GameBoard: React.FC<GameBoardProps> = ({ history, length }) => {
   return (
     <div className="space-y-3">
       {history.length === 0 && (
-        <div className="text-white/60 text-sm">
+        <div className="text-sm opacity-70">
           Aún no hay intentos. Escribe un número de {length} dígitos.
         </div>
       )}
@@ -26,8 +26,8 @@ export const GameBoard: React.FC<GameBoardProps> = ({ history, length }) => {
                   ))}
                 </code>
                 <span className="text-sm font-semibold tabular-nums flex items-center gap-1">
-                  <span className="px-2 py-1 rounded-lg bg-brand-500/30 border border-brand-400/30 text-brand-100">{row.correct}</span>
-                  <span className="text-white/50">/{length}</span>
+                  <span className="px-2 py-1 rounded-lg bg-brand-500/30 border border-brand-400/30">{row.correct}</span>
+                  <span className="opacity-60">/{length}</span>
                 </span>
               </div>
             </li>

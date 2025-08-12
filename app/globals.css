@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: radial-gradient(circle at 25% 20%,#003a66,#012540 55%,#000d19 120%);
+  --panel: rgba(5,25,45,0.6);
+  --panel-border: rgba(255,255,255,0.08);
+  --grad-text-from: #ffffff;
+  --grad-text-to: #b9e0ff;
+  --text-color: #ffffff;
+  /* Paleta base (default) */
+  --c-primary: linear-gradient(90deg,#2563eb,#1d4ed8);
+  --c-primary-hover: linear-gradient(90deg,#3b82f6,#1d4ed8);
+  --c-secondary: linear-gradient(90deg,#0d3b66,#0a2b4c);
+  --c-secondary-hover: linear-gradient(90deg,#134c80,#0a2b4c);
+  --c-accent: linear-gradient(90deg,#f59e0b,#d97706);
+  --c-accent-hover: linear-gradient(90deg,#fbbf24,#b45309);
+  --c-danger: linear-gradient(90deg,#dc2626,#b91c1c);
+  --c-danger-hover: linear-gradient(90deg,#ef4444,#991b1b);
+  --diff-facil-grad: linear-gradient(135deg,#10b981,#059669);
+  --diff-medio-grad: linear-gradient(135deg,#2563eb,#1d4ed8);
+  --diff-dificil-grad: linear-gradient(135deg,#ff4e3a,#b80000);
+}
+
+body.theme-default {
+  --bg: radial-gradient(circle at 25% 20%,#003a66,#012540 55%,#000d19 120%);
+  --panel: rgba(5,25,45,0.6);
+  --panel-border: rgba(255,255,255,0.08);
+  --grad-text-from: #ffffff;
+  --grad-text-to: #b9e0ff;
+}
+
+body.theme-rosa {
+  --bg: radial-gradient(circle at 25% 20%,#ffecf8,#ffc2e6 55%,#ff9bd5 120%);
+  --panel: rgba(255,255,255,0.55);
+  --panel-border: rgba(255,105,180,0.25);
+  --grad-text-from: #ff3d9b;
+  --grad-text-to: #ff79c9;
+  --text-color: #3b0a26; /* Texto oscuro para contrastar con fondo claro */
+  --c-primary: linear-gradient(90deg,#ff5fb5,#ff36a2);
+  --c-primary-hover: linear-gradient(90deg,#ff78c1,#ff4aad);
+  --c-secondary: linear-gradient(90deg,#ff9bd5,#ff7ac6);
+  --c-secondary-hover: linear-gradient(90deg,#ffb0dc,#ff8ed0);
+  --c-accent: linear-gradient(90deg,#ffb347,#ff9800);
+  --c-accent-hover: linear-gradient(90deg,#ffc062,#ff990a);
+  --c-danger: linear-gradient(90deg,#ff3d5f,#e4002b);
+  --c-danger-hover: linear-gradient(90deg,#ff5b78,#c20023);
+  --diff-facil-grad: linear-gradient(135deg,#ff9bd5,#ff7ac6);
+  --diff-medio-grad: linear-gradient(135deg,#ff5fb5,#ff36a2);
+  --diff-dificil-grad: linear-gradient(135deg,#ff3d9b,#ff0066);
+}
+
+body.theme-bnw {
+  --bg: radial-gradient(circle at 25% 20%,#222,#111 55%,#000 120%);
+  --panel: rgba(30,30,30,0.65);
+  --panel-border: rgba(255,255,255,0.12);
+  --grad-text-from: #ffffff;
+  --grad-text-to: #b5b5b5;
+  filter: grayscale(.15);
+  --c-primary: linear-gradient(90deg,#444,#222);
+  --c-primary-hover: linear-gradient(90deg,#555,#222);
+  --c-secondary: linear-gradient(90deg,#2f2f2f,#1a1a1a);
+  --c-secondary-hover: linear-gradient(90deg,#3a3a3a,#202020);
+  --c-accent: linear-gradient(90deg,#6b6b6b,#4a4a4a);
+  --c-accent-hover: linear-gradient(90deg,#7a7a7a,#4f4f4f);
+  --c-danger: linear-gradient(90deg,#8b1d1d,#5e1010);
+  --c-danger-hover: linear-gradient(90deg,#a32222,#4d0d0d);
+  --diff-facil-grad: linear-gradient(135deg,#2d2d2d,#1b1b1b);
+  --diff-medio-grad: linear-gradient(135deg,#444,#222);
+  --diff-dificil-grad: linear-gradient(135deg,#5b5b5b,#2e2e2e);
+}
+
+html,body { height:100%; }
+body {
+  font-family: theme('fontFamily.display');
+  background: var(--bg);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior-y: contain;
+  transition: background 0.8s ease, color 0.4s ease, filter 0.6s ease;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg,var(--grad-text-from),var(--grad-text-to));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Botones temáticos */
+.btn-base { border-radius:0.5rem; font-weight:600; color:#fff; box-shadow:0 4px 18px -4px rgba(0,0,0,0.5); transition:transform .3s ease-out, background .3s ease, filter .3s ease, box-shadow .3s ease; position:relative; }
+.btn-base:focus { outline:none; box-shadow:0 0 0 2px rgba(255,255,255,0.25),0 4px 18px -4px rgba(0,0,0,0.5); }
+.btn-base:active { transform:scale(.95); }
+.btn-primary { background: var(--c-primary); color:#fff; }
+.btn-primary:hover { background: var(--c-primary-hover); }
+.btn-secondary { background: var(--c-secondary); color:#fff; }
+.btn-secondary:hover { background: var(--c-secondary-hover); }
+.btn-accent { background: var(--c-accent); color:#fff; }
+.btn-accent:hover { background: var(--c-accent-hover); }
+.btn-danger { background: var(--c-danger); color:#fff; }
+.btn-danger:hover { background: var(--c-danger-hover); }
+.btn-danger:disabled,
+.btn-primary:disabled { filter: grayscale(.3); opacity:.55; }
+
+/* Dificultad activa */
+.diff-active { color:#fff; }
+.diff-facil-active { background: var(--diff-facil-grad); }
+.diff-medio-active { background: var(--diff-medio-grad); }
+.diff-dificil-active { background: var(--diff-dificil-grad); }
+
+.card-glass {
+  background: var(--panel);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 6px 28px -6px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+@keyframes celebrate-pop {
+  0% { transform: scale(.6) translateY(40px); opacity:0; filter:blur(8px); }
+  60% { transform: scale(1.03) translateY(-4px); opacity:1; filter:blur(0); }
+  100% { transform: scale(1) translateY(0); opacity:1; }
+}
+.animate-celebrate-enter { animation: celebrate-pop .8s cubic-bezier(.22,1.2,.31,1) both; }
+
+.input-code::-webkit-outer-spin-button,
+.input-code::-webkit-inner-spin-button { -webkit-appearance: none; margin:0; }
+.input-code[type=number] { -moz-appearance: textfield; appearance: textfield; }
+
+/* Mobile optimizations */
+@media (max-width: 480px) {
+  h1 { font-size: 1.95rem; line-height: 1.15; }
+  .card-glass { padding: 1.1rem !important; border-radius: 1.1rem; }
+  .input-code { font-size: 1.15rem; padding-top: 0.85rem; padding-bottom: 0.85rem; }
+  main { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .history-item { font-size: 0.95rem; }
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* Overrides de contraste para tema rosa: reemplaza utilidades de texto blancas por tono oscuro */
+body.theme-rosa { color: var(--text-color); }
+body.theme-rosa :where(p,span,div,li,strong,em,small,label){ color: var(--text-color); }
+body.theme-rosa [class*='text-white'],
+body.theme-rosa [class*='text-brand'] { color: var(--text-color) !important; }
+/* Mantener texto blanco en botones y badges activos */
+body.theme-rosa .btn-base,
+body.theme-rosa .diff-active { color:#fff !important; }

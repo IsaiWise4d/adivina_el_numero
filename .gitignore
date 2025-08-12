@@ -1,0 +1,70 @@
+# Node / Next.js estándar
+node_modules/
+.next/
+.next-static/
+out/
+.next.cache/
+
+# Dependencias bloque / paquetes
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+# (Elige uno y elimina los demás si deseas versionar el lockfile definitivo)
+
+# VSCode
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+logs/
+*.log
+
+# Coverage / tests
+coverage/
+.nyc_output/
+
+# Producción / builds
+build/
+dist/
+
+# Sistemas
+.DS_Store
+Thumbs.db
+
+# Env / claves (ajusta si necesitas algunos en CI)
+.env
+.env.*
+!.env.example
+
+# Tipos generados
+*.tsbuildinfo
+
+# Cache varias
+.cache/
+.parcel-cache/
+.next-turbo/
+
+# Vercel / deployment local
+.vercel
+
+# Output temporal
+*.tmp
+*.swp
+*.swo
+
+# Artefactos de perfiles
+profile-*.
+
+# Lock de procesos
+pids/
+*.pid
+*.seed
+
+# Otros
+.idea/
+*.orig
